@@ -3,13 +3,17 @@
 require 'twitter'
 require 'readline'
 
-$VERBOSE = nil # not to output any warning to stderr
-
-Twitter.configure do |config|
-  config.consumer_key = 'SECRET 1'
-  config.consumer_secret = 'SECRET 2'
-  config.oauth_token = 'YOUR ORIGINAL'
-  config.oauth_token_secret = 'YOUR ORIGINAL'
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = 'Comsumer Key'
+  config.consumer_secret     = 'Comsumer Secret'
+  config.access_token        = 'Access Token'
+  config.access_token_secret = 'Access Token Secret'
 end
 
-Twitter.update(Readline.readline)
+puts 'Press Ctrl-C to cancel'
+tweet = Readline.readline('>')
+begin
+  client.update(tweet) unless tweet.nil?
+rescue Twitter::Error::Unauthorized
+  $stderr.puts 'Authentication error. (check 4 tokens)'
+end
