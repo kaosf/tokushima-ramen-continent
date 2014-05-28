@@ -1,29 +1,14 @@
-超簡易 Twitter クライアント (自分用)
+# Tokushima Ramen Continent
 
-何ぞそのうち改造する (予定だったがどうでもよくなってる)
+## Usage
 
-OAuth の設定する値 4 つは自分で取得して下さい
-
-http://atoken4me.heroku.com/ とか使って
-
-その値設定したら
-
-```
-gem install twitter
+```sh
+bundle install
+ruby trc.rb
 ```
 
-すれば使えるよ
+## License
 
-```
-ruby trc.rb -t "つぶやきたい内容"
-```
+[MIT](http://opensource.org/licenses/MIT)
 
-とか
-
-```
-chmod +x trc.rb
-./trc
-> つぶやきたい内容
-```
-
-作者 [@ka_](https://twitter.com/ka_)
+Copyright © 2012-2014 ka
